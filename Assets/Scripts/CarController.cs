@@ -5,28 +5,20 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    private const string HORIZONTAL = "Horizontal";
-    private const string VERTICAL = "Vertical";
-
-    private float horizontalInput;
-    private float verticalInput;
-    private float currentSteerAngle;
-    private float currentbreakForce;
+    private float horizontalInput, verticalInput;
+    private float currentSteerAngle, currentbreakForce;
     private bool isBreaking;
 
-    [SerializeField] private float motorForce;
-    [SerializeField] private float breakForce;
-    [SerializeField] private float maxSteerAngle;
+    // Settings
+    [SerializeField] private float motorForce, breakForce, maxSteerAngle;
 
-    [SerializeField] private WheelCollider frontLeftWheelCollider;
-    [SerializeField] private WheelCollider frontRightWheelCollider;
-    [SerializeField] private WheelCollider rearLeftWheelCollider;
-    [SerializeField] private WheelCollider rearRightWheelCollider;
+    // Wheel Colliders
+    [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
+    [SerializeField] private WheelCollider rearLeftWheelCollider, rearRightWheelCollider;
 
-    [SerializeField] private Transform frontLeftWheelTransform;
-    [SerializeField] private Transform frontRightWheeTransform;
-    [SerializeField] private Transform rearLeftWheelTransform;
-    [SerializeField] private Transform rearRightWheelTransform;
+    // Wheels
+    [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
+    [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
 
     private void FixedUpdate()
     {
@@ -36,11 +28,15 @@ public class CarController : MonoBehaviour
         UpdateWheels();
     }
 
-
     private void GetInput()
     {
-        horizontalInput = Input.GetAxis(HORIZONTAL);
-        verticalInput = Input.GetAxis(VERTICAL);
+        // Steering Input
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        // Acceleration Input
+        verticalInput = Input.GetAxis("Vertical");
+
+        // Breaking Input
         isBreaking = Input.GetKey(KeyCode.Space);
     }
 
@@ -70,7 +66,7 @@ public class CarController : MonoBehaviour
     private void UpdateWheels()
     {
         UpdateSingleWheel(frontLeftWheelCollider, frontLeftWheelTransform);
-        UpdateSingleWheel(frontRightWheelCollider, frontRightWheeTransform);
+        UpdateSingleWheel(frontRightWheelCollider, frontRightWheelTransform);
         UpdateSingleWheel(rearRightWheelCollider, rearRightWheelTransform);
         UpdateSingleWheel(rearLeftWheelCollider, rearLeftWheelTransform);
     }
@@ -78,9 +74,9 @@ public class CarController : MonoBehaviour
     private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)
     {
         Vector3 pos;
-        Quaternion rot;       
+        Quaternion rot;
         wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
     }
-}      
+}
