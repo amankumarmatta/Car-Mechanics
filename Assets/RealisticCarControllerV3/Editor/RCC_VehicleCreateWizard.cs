@@ -407,8 +407,8 @@ public class RCC_VehicleCreateWizard : EditorWindow {
 
                 Rigidbody rigid = pivot.GetComponent<Rigidbody>();
                 rigid.mass = RCC_InitialSettings.Instance.mass;
-                rigid.drag = RCC_InitialSettings.Instance.drag;
-                rigid.angularDrag = RCC_InitialSettings.Instance.angularDrag;
+                rigid.linearDamping = RCC_InitialSettings.Instance.drag;
+                rigid.angularDamping = RCC_InitialSettings.Instance.angularDrag;
                 rigid.interpolation = RCC_InitialSettings.Instance.interpolation;
 
                 currentSelectedObject.transform.SetParent(pivot.transform);
@@ -420,8 +420,8 @@ public class RCC_VehicleCreateWizard : EditorWindow {
 
                 Rigidbody rigid = currentSelectedObject.GetComponent<Rigidbody>();
                 rigid.mass = RCC_InitialSettings.Instance.mass;
-                rigid.drag = RCC_InitialSettings.Instance.drag;
-                rigid.angularDrag = RCC_InitialSettings.Instance.angularDrag;
+                rigid.linearDamping = RCC_InitialSettings.Instance.drag;
+                rigid.angularDamping = RCC_InitialSettings.Instance.angularDrag;
                 rigid.interpolation = RCC_InitialSettings.Instance.interpolation;
 
                 Selection.activeGameObject = currentSelectedObject;

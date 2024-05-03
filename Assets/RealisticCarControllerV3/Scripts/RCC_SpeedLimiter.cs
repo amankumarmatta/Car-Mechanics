@@ -27,9 +27,9 @@ public class RCC_SpeedLimiter : MonoBehaviour {
             return;
 
         if (defaultDrag == -1)
-            defaultDrag = carController.Rigid.drag;
+            defaultDrag = carController.Rigid.linearDamping;
 
-        carController.Rigid.drag = .02f * carController.speed;
+        carController.Rigid.linearDamping = .02f * carController.speed;
 
     }
 
@@ -40,7 +40,7 @@ public class RCC_SpeedLimiter : MonoBehaviour {
         if (!carController)
             return;
 
-        carController.Rigid.drag = defaultDrag;
+        carController.Rigid.linearDamping = defaultDrag;
 
     }
 
