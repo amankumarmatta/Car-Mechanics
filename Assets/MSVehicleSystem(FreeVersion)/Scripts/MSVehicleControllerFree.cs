@@ -716,7 +716,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			for (int x = 0; x < _cameras.cameras.Length; x++) {
 				_cameras.cameras [x]._camera.transform.tag = "MainCamera";
 				Camera componentCameraX = _cameras.cameras [x]._camera.GetComponent<Camera> ();
-				if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.LookAtThePlayer) {
+				/*if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.LookAtThePlayer) {
 					componentCameraX.nearClipPlane = 0.5f;
 				}
 				if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.Orbital) {
@@ -739,7 +739,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 				}
 				if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.FollowPlayer) {
 					componentCameraX.nearClipPlane = 0.5f;
-				}
+				}*/
 			}
 		}
 	}
