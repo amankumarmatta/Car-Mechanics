@@ -10,6 +10,8 @@ public class Controller : NetworkBehaviour
 
     [SerializeField] private GameObject shield;
 
+    private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
     private void Awake()
     {
         shield.SetActive(false);
