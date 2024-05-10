@@ -27,7 +27,7 @@ public class MSFPSControllerFree : MonoBehaviour {
 		controller = GetComponent<CharacterController> ();
 		joystickMoveFPS = transform.Find("Canvas/JoystickMFPS").GetComponent<JoystickFree>();
 		joystickRotateFPS = transform.Find("Canvas/JoystickRFPS").GetComponent<JoystickFree>();
-		sceneControllerMS = FindAnyObjectByType(typeof(MSSceneControllerFree)) as MSSceneControllerFree;
+		sceneControllerMS = FindObjectOfType(typeof(MSSceneControllerFree)) as MSSceneControllerFree;
 	}
 
 	void OnEnable(){
@@ -47,8 +47,8 @@ public class MSFPSControllerFree : MonoBehaviour {
 	}
 
 	void Update () {
-        #region getInputs
-        if (sceneControllerMS.selectControls == MSSceneControllerFree.ControlTypeFree.mobileButton) {
+		#region getInputs
+		if (sceneControllerMS.selectControls == MSSceneControllerFree.ControlTypeFree.mobileButton) {
 			if(!joystickMoveFPS.isActiveAndEnabled || !joystickRotateFPS.isActiveAndEnabled){
 				EnableControls();
 			}

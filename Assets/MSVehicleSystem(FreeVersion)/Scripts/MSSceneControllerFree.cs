@@ -173,6 +173,8 @@ public class MSSceneControllerFree : MonoBehaviour {
 		}
 		else {
 			//UI transform.find
+			cameraMobileButton = transform.Find ("Canvas/ChangeCamerasB").GetComponent<Button> ();
+			enterAndExitButton = transform.Find ("Canvas/EnterAndExitB").GetComponent<Button> ();
 
 			buttonLeft = transform.Find ("Canvas/MSButtonLeft").GetComponent<MSButtonFree> ();
 			buttonRight = transform.Find ("Canvas/MSButtonRight").GetComponent<MSButtonFree> ();
@@ -180,6 +182,14 @@ public class MSSceneControllerFree : MonoBehaviour {
 			buttonDown = transform.Find ("Canvas/MSButtonDown").GetComponent<MSButtonFree> ();
 			joystickCamera = transform.Find ("Canvas/MSJoystickCamera").GetComponent<JoystickFree> ();
 
+			nextVehicle = transform.Find ("Canvas/nextVehicle").GetComponent<Button> ();
+			previousVehicle = transform.Find ("Canvas/previousVehicle").GetComponent<Button> ();
+			gearText = transform.Find ("Canvas/Strings/gearText").GetComponent<Text> ();
+			kmhText = transform.Find ("Canvas/Strings/kmhText").GetComponent<Text> ();
+			mphText = transform.Find ("Canvas/Strings/mphText").GetComponent<Text> ();
+			handBrakeText = transform.Find ("Canvas/Strings/handBrakeText").GetComponent<Text> ();
+			pauseText = transform.Find ("Canvas/Strings/pauseText").GetComponent<Text> ();
+			backGround = transform.Find ("Canvas/Strings").GetComponent<Image> ();
 			//end transform.find
 
 			if (nextVehicle) {
@@ -387,14 +397,44 @@ public class MSSceneControllerFree : MonoBehaviour {
 					}
 				}
 			}
+			//
+			if (!playerIsNull) {
+				if (player.gameObject.activeInHierarchy) {
+					EnableUI (false);
+				} else {
+					EnableUI (UIVisualizer);
+				}
+			} else {
+				EnableUI (UIVisualizer);
+			}
+			//
 			if (vehicles.Length > 0 && currentVehicle < vehicles.Length && UIVisualizer && vehicleCode) {
 				if (vehicleCode.isInsideTheCar) {
 					clampGear = Mathf.Clamp (vehicleCode.currentGear, -1, 1);
 					if (clampGear == 0) {
 						clampGear = 1;
 					}
+
+					gearText.text = "Gear: " + vehicleCode.currentGear;
+					kmhText.text = "Velocity(km/h): " + (int)(vehicleCode.KMh * clampGear);
+					mphText.text = "Velocity(mp/h): " + (int)(vehicleCode.KMh * 0.621371f * clampGear);
+					handBrakeText.text = "HandBreak: " + vehicleCode.handBrakeTrue;
+					pauseText.text = "Pause: " + pause;
 				}
 			}
+		}
+	}
+
+	void EnableUI(bool enable){
+		if (nextVehicle.gameObject.activeSelf != enable) {
+			nextVehicle.gameObject.SetActive(enable);
+			previousVehicle.gameObject.SetActive (enable);
+			gearText.gameObject.SetActive (enable);
+			kmhText.gameObject.SetActive (enable);
+			mphText.gameObject.SetActive (enable);
+			handBrakeText.gameObject.SetActive (enable);
+			pauseText.gameObject.SetActive (enable);
+			backGround.gameObject.SetActive (enable);
 		}
 	}
 

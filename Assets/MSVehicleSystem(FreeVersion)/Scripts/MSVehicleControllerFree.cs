@@ -592,8 +592,8 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		ms_Rigidbody = GetComponent <Rigidbody> ();
 		ms_Rigidbody.useGravity = true;
 		ms_Rigidbody.mass = _vehicleSettings.vehicleMass;
-		ms_Rigidbody.linearDamping = 0.0f;
-		ms_Rigidbody.angularDamping = 0.05f;
+		ms_Rigidbody.drag = 0.0f;
+		ms_Rigidbody.angularDrag = 0.05f;
 		ms_Rigidbody.maxAngularVelocity = 14.0f;
 		ms_Rigidbody.maxDepenetrationVelocity = 8.0f;
 		additionalCurrentGravity = 4.0f * ms_Rigidbody.mass;
@@ -716,7 +716,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			for (int x = 0; x < _cameras.cameras.Length; x++) {
 				_cameras.cameras [x]._camera.transform.tag = "MainCamera";
 				Camera componentCameraX = _cameras.cameras [x]._camera.GetComponent<Camera> ();
-				/*if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.LookAtThePlayer) {
+				if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.LookAtThePlayer) {
 					componentCameraX.nearClipPlane = 0.5f;
 				}
 				if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.Orbital) {
@@ -739,7 +739,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 				}
 				if (_cameras.cameras [x].rotationType == CameraTypeClassFree.TipoRotac.FollowPlayer) {
 					componentCameraX.nearClipPlane = 0.5f;
-				}*/
+				}
 			}
 		}
 	}
@@ -982,7 +982,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		mouseYInput = controls.mouseYInput;
 		mouseScrollWheelInput = controls.mouseScrollWheelInput;
 
-		KMh = ms_Rigidbody.linearVelocity.magnitude * 3.6f;
+		KMh = ms_Rigidbody.velocity.magnitude * 3.6f;
 		inclinationFactorForcesDown = Mathf.Clamp(Mathf.Abs(Vector3.Dot (Vector3.up, transform.up)),_vehicleSettings._aerodynamics.downForceAngleFactor,1.0f);
 
 		if (wheelFDIsGrounded || wheelFEIsGrounded || wheelTDIsGrounded || wheelTEIsGrounded) {
@@ -993,7 +993,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			downForceUpdateRef = Mathf.Lerp (downForceUpdateRef, downForceTempLerp, Time.deltaTime*2.5f);
 		}
 			
-		ms_Rigidbody.linearDamping = Mathf.Clamp ((KMh / _vehicleTorque.maxVelocityKMh) * 0.075f, 0.001f, 0.075f);
+		ms_Rigidbody.drag = Mathf.Clamp ((KMh / _vehicleTorque.maxVelocityKMh) * 0.075f, 0.001f, 0.075f);
 		//
 		if (!changinGearsAuto) {
 			engineInput = Mathf.Clamp01 (verticalInput);
@@ -1196,7 +1196,7 @@ public class MSVehicleControllerFree : MonoBehaviour {
 		localVelocityWheelTireSlips = WheelLocalVelocity (wheelHit);
 		localSurfaceForceDTireSlips = LocalSurfaceForce (wheelHit);
 		if (KMh > _vehicleTorque.maxVelocityKMh) {
-			reverseForce = -5 * ms_Rigidbody.linearVelocity.magnitude;
+			reverseForce = -5 * ms_Rigidbody.velocity.magnitude;
 		} else {
 			reverseForce = 0;
 		}
@@ -2010,8 +2010,8 @@ public class MSVehicleControllerFree : MonoBehaviour {
 			tempAlphaSkidMarks = Mathf.Abs (tempWHeelHit.forwardSlip);
 		}
 		//
-		skidTemp = tempWHeelHit.sidewaysDir * (_skidMarks.standardBrandWidth*vehicleScale) / 2f * Vector3.Dot(wheelCollider.attachedRigidbody.linearVelocity.normalized, tempWHeelHit.forwardDir);
-		skidTemp -= tempWHeelHit.forwardDir * (_skidMarks.standardBrandWidth*vehicleScale) * 0.1f * Vector3.Dot(wheelCollider.attachedRigidbody.linearVelocity.normalized, tempWHeelHit.sidewaysDir);
+		skidTemp = tempWHeelHit.sidewaysDir * (_skidMarks.standardBrandWidth*vehicleScale) / 2f * Vector3.Dot(wheelCollider.attachedRigidbody.velocity.normalized, tempWHeelHit.forwardDir);
+		skidTemp -= tempWHeelHit.forwardDir * (_skidMarks.standardBrandWidth*vehicleScale) * 0.1f * Vector3.Dot(wheelCollider.attachedRigidbody.velocity.normalized, tempWHeelHit.sidewaysDir);
 		if(KMh > (75.0f / _skidMarks.sensibility) && Mathf.Abs(wheelCollider.rpm) < (3.0f / _skidMarks.sensibility)) {
 			if(wheelCollider.isGrounded) {
 				tempAlphaSkidMarks = 10;
