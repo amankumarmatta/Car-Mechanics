@@ -732,7 +732,7 @@ PlayerSettings:
   webGLWebAssemblyBigInt: 0
   webGLCloseOnQuit: 0
   scriptingDefineSymbols:
-    Android: UNITY_POST_PROCESSING_STACK_V2
+    Android: UNITY_POST_PROCESSING_STACK_V2;BCG_RCC
     Bratwurst: BCG_RCC;BCG_ENTEREXIT
     EmbeddedLinux: BCG_RCC;BCG_ENTEREXIT
     GameCoreScarlett: BCG_RCC;BCG_ENTEREXIT
@@ -842,6 +842,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
