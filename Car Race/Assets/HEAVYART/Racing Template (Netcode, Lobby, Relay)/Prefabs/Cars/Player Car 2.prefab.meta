@@ -5,3 +5,11 @@ PrefabImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268948
+  packageName: Multiplayer Racing Template (Netcode, Lobby, Relay)
+  packageVersion: 1.0.2
+  assetPath: Assets/HEAVYART/Racing Template (Netcode, Lobby, Relay)/Prefabs/Cars/Player
+    Car 2.prefab
+  uploadId: 657403

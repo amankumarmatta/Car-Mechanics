@@ -9,3 +9,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 268948
+  packageName: Multiplayer Racing Template (Netcode, Lobby, Relay)
+  packageVersion: 
+  assetPath: Assets/HEAVYART/Racing Template (Netcode, Lobby, Relay)/Scripts/Input/CarInputControls.cs
+  uploadId: 0

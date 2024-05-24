@@ -92,12 +92,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configs:
   - label: Sport Car
-    playerPrefab: {fileID: 931724704820648704, guid: 01c65bbb48c9afb4b91813ea6ad41d22, type: 3}
-    previewModelPrefab: {fileID: 4585683722747882270, guid: 9b1bd5ffccd4953478d020e0d9ffc753, type: 3}
+    playerPrefab: {fileID: 5652927191660032059, guid: 5c12a0ac1f5351545abccf32eea3eea0, type: 3}
+    previewModelPrefab: {fileID: 8637041790143942572, guid: 921a400e8c26f70479bf2eee719aa268, type: 3}
     health: 100
     nitro: 100
     nitroUsagePerSecond: 20
-    nitroTorqueMultiplier: 3
+    nitroTorqueMultiplier: 5
   - label: Pickup Car
     playerPrefab: {fileID: 5652927191660032059, guid: 5d21e3257d38fec4593e5b65bf6c9867, type: 3}
     previewModelPrefab: {fileID: 5697910159956465137, guid: 994dbeba2b18c8847be3e74f7015a37f, type: 3}
@@ -112,6 +112,13 @@ MonoBehaviour:
     nitro: 100
     nitroUsagePerSecond: 20
     nitroTorqueMultiplier: 4
+  - label: Race Car
+    playerPrefab: {fileID: 2132412974241120000, guid: 2f7676fc5bf5f24458eaf46f23340018, type: 3}
+    previewModelPrefab: {fileID: 8849108419845904129, guid: c256eb055d640794eaf8138031b01c2a, type: 3}
+    health: 100
+    nitro: 100
+    nitroUsagePerSecond: 20
+    nitroTorqueMultiplier: 7
   availableColors:
   - {r: 1, g: 0.75, b: 0, a: 1}
   - {r: 0.32156864, g: 0.6509804, b: 0.8, a: 1}
