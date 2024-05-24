@@ -114,7 +114,7 @@ MonoBehaviour:
     nitroTorqueMultiplier: 4
   - label: Race Car
     playerPrefab: {fileID: 2132412974241120000, guid: 2f7676fc5bf5f24458eaf46f23340018, type: 3}
-    previewModelPrefab: {fileID: 8849108419845904129, guid: c256eb055d640794eaf8138031b01c2a, type: 3}
+    previewModelPrefab: {fileID: 3091928601613258773, guid: 71aa9176b66e0604e8469d5daa03d007, type: 3}
     health: 100
     nitro: 100
     nitroUsagePerSecond: 20
