@@ -92,8 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configs:
   - label: Sport Car
-    playerPrefab: {fileID: 5652927191660032059, guid: 5c12a0ac1f5351545abccf32eea3eea0, type: 3}
-    previewModelPrefab: {fileID: 8637041790143942572, guid: 921a400e8c26f70479bf2eee719aa268, type: 3}
+    playerPrefab: {fileID: 931724704820648704, guid: 01c65bbb48c9afb4b91813ea6ad41d22, type: 3}
+    previewModelPrefab: {fileID: 4585683722747882270, guid: 9b1bd5ffccd4953478d020e0d9ffc753, type: 3}
     health: 100
     nitro: 100
     nitroUsagePerSecond: 20
