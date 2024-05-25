@@ -1,0 +1,5 @@
+D:/Projects/Car-Mechanics/Car Race/.utmp/RelWithDebInfo/2ql3f4k4/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Projects/Car-Mechanics/Car Race/.utmp/RelWithDebInfo/2ql3f4k4/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/Projects/Car-Mechanics/Car Race/.utmp/RelWithDebInfo/2ql3f4k4/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Projects/Car-Mechanics/Car Race/.utmp/RelWithDebInfo/2ql3f4k4/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Projects/Car-Mechanics/Car Race/.utmp/RelWithDebInfo/2ql3f4k4/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir
