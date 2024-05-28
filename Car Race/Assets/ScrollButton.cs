@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,11 +5,13 @@ public class ScrollButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 {
     public bool isDown = false;
 
-    public void OnPointerDown(PointerEventData eventData){
+    public void OnPointerDown(PointerEventData eventData)
+    {
         isDown = true;
     }
 
-    public void OnPointerUp(PointerEventData eventData){
+    public void OnPointerUp(PointerEventData eventData)
+    {
         isDown = false;
     }
 }

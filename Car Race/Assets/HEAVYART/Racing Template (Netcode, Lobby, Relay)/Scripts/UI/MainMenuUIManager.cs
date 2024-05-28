@@ -11,6 +11,7 @@ namespace HEAVYART.Racing.Netcode
         public MainMenuCarSelectionController carSelectionController;
 
         [Space]
+        public RectTransform nameEntryPanel;
         public RectTransform mainGamePanel;
         public RectTransform startRaceMenuPopup;
         public RectTransform joinGamePopup;
@@ -44,7 +45,7 @@ namespace HEAVYART.Racing.Netcode
             yield return new WaitUntil(() => AuthenticationService.Instance.IsSignedIn == true);
 
             InitializeColors();
-            ShowMainGamePanel();
+            ShowNameEntryPanel();
 
             LobbyManager.Instance.OnErrorOccurred += OnErrorOccurred;
         }
@@ -123,6 +124,13 @@ namespace HEAVYART.Racing.Netcode
             return 0;
         }
 
+        public void ShowNameEntryPanel()
+        {
+            HideAll();
+            nameEntryPanel.gameObject.SetActive(true);
+
+        }
+
         public void ShowMainGamePanel()
         {
             HideAll();
@@ -161,6 +169,7 @@ namespace HEAVYART.Racing.Netcode
 
         private void HideAll()
         {
+            nameEntryPanel.gameObject.SetActive(false);
             mainGamePanel.gameObject.SetActive(false);
             startRaceMenuPopup.gameObject.SetActive(false);
             joinGamePopup.gameObject.SetActive(false);
