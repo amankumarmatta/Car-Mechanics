@@ -161,7 +161,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Android: com.DefaultCompany.CarRace
+    Android: com.rexy.CarRace
     Standalone: com.HEAVYART.Racing-Game-Template
   buildNumber:
     Bratwurst: 0
@@ -171,7 +171,7 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 29
+  AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -252,7 +252,7 @@ PlayerSettings:
   clonedFromGUID: 6f90464236bc9a74ca8db147d5d5c240
   templatePackageId: 
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 1
+  useCustomMainManifest: 0
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
